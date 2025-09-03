@@ -118,15 +118,9 @@
                             alt="Cánh đồng lúa" class="w-full rounded-2xl shadow-lg">
                     </div>
                     <div>
-                        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-primary">Giới thiệu công ty</h2>
-                        <p class="text-lg text-gray-600 mb-6 leading-relaxed">Gạo sạch 3 miền được thành lập từ năm 2003
-                            với sứ mệnh mang đến những hạt gạo chất lượng cao nhất từ ba miền Bắc - Trung - Nam của Việt
-                            Nam. Chúng tôi tự hào là một trong những thương hiệu gạo uy tín hàng đầu với hơn 20 năm kinh
-                            nghiệm trong ngành.</p>
-                        <p class="text-lg text-gray-600 mb-6 leading-relaxed">Với quy trình sản xuất khép kín từ khâu
-                            gieo trồng đến chế biến và đóng gói, chúng tôi đảm bảo mỗi hạt gạo đều đạt tiêu chuẩn chất
-                            lượng cao nhất. Sản phẩm của chúng tôi không chỉ được tin dùng tại thị trường trong nước mà
-                            còn xuất khẩu đến hơn 30 quốc gia trên thế giới.</p>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-primary">Giới thiệu GẠO SẠCH 3 MIỀN</h2>
+                        <p class="text-lg text-gray-600 mb-6 leading-relaxed">GẠO SẠCH 3 MIỀN là đơn vị chuyên cung cấp các loại gạo chất lượng cao cho thị trường trong nước và quốc tế. Với nhiều năm kinh nghiệm trong lĩnh vực kinh doanh nông sản, đặc biệt là gạo, GẠO SẠCH 3 MIỀN tự hào là đối tác tin cậy của các công ty xuất khẩu, các cơ sở chế biến thực phẩm công nghiệp, nhà máy sản xuất cháo ăn liền và nhiều doanh nghiệp sản xuất thực phẩm quy mô lớn.</p>
+                        <p class="text-lg text-gray-600 mb-6 leading-relaxed">Chúng tôi cam kết mang đến nguồn gạo ổn định, đáp ứng các tiêu chuẩn về an toàn vệ sinh thực phẩm, truy xuất nguồn gốc rõ ràng, phù hợp với yêu cầu đa dạng của từng đối tác. Với hệ thống kho bãi và logistic chuyên nghiệp, GẠO SẠCH 3 MIỀN đảm bảo giao hàng đúng tiến độ, giữ vững chất lượng sản phẩm trong suốt quá trình cung ứng.</p>
                         <div class="grid grid-cols-2 gap-6">
                             <div class="text-center p-6 bg-gray-50 rounded-lg">
                                 <h3 class="text-3xl font-bold text-primary mb-2">20+</h3>
@@ -152,18 +146,22 @@
                             <i class="ri-eye-line text-3xl text-primary"></i>
                         </div>
                         <h3 class="text-2xl font-bold mb-6 text-gray-800">Tầm nhìn</h3>
-                        <p class="text-lg text-gray-600 leading-relaxed">Trở thành thương hiệu gạo hàng đầu Việt Nam và
-                            khu vực Đông Nam Á, được công nhận về chất lượng sản phẩm và trách nhiệm xã hội. Chúng tôi
-                            hướng tới việc nâng cao giá trị nông sản Việt Nam trên thị trường quốc tế.</p>
+                        <P class="text-lg text-gray-600 leading-relaxed">GẠO SẠCH 3 MIỀN – Đơn vị cung cấp gạo đạt tiêu chuẩn ISO 22000 về an toàn thực phẩm</P>
+                        <p class="text-lg text-gray-600 leading-relaxed">Với định hướng phát triển bền vững và cam kết mang đến những sản phẩm chất lượng cao,
+                            GẠO SẠCH 3 MIỀN tự hào là đơn vị đạt chứng nhận ISO 22000 – hệ thống quản lý an toàn thực phẩm theo tiêu chuẩn quốc tế.
+                            Đây là minh chứng cho năng lực kiểm soát chất lượng nghiêm ngặt của GẠO SẠCH 3 MIỀN trong toàn bộ chuỗi cung ứng, 
+                            từ khâu thu mua nguyên liệu, bảo quản, chế biến đến vận chuyển và giao hàng.</p>
+                        <P class="text-lg text-gray-600 leading-relaxed">GẠO SẠCH 3 MIỀN – Đồng hành cùng giá trị bền vững từ hạt gạo Việt.</P>
                     </div>
                     <div class="bg-white p-12 rounded-2xl shadow-lg">
                         <div class="w-20 h-20 bg-secondary/10 rounded-full flex items-center justify-center mb-8">
                             <i class="ri-heart-line text-3xl text-secondary"></i>
                         </div>
                         <h3 class="text-2xl font-bold mb-6 text-gray-800">Sứ mệnh</h3>
-                        <p class="text-lg text-gray-600 leading-relaxed">Cung cấp những sản phẩm gạo chất lượng cao, an
-                            toàn và dinh dưỡng cho người tiêu dùng. Đồng thời hỗ trợ nông dân nâng cao thu nhập và áp
-                            dụng kỹ thuật canh tác bền vững, góp phần phát triển nông nghiệp Việt Nam.</p>
+                        <p class="text-lg text-gray-600 leading-relaxed">Việc đạt chuẩn ISO 22000 giúp GẠO SẠCH 3 MIỀN đáp ứng tốt yêu cầu của các đối tác trong nước và quốc tế, 
+                            đặc biệt là các doanh nghiệp chế biến thực phẩm, nhà máy sản xuất suất ăn công nghiệp và các công ty xuất khẩu gạo. 
+                            Từng hạt gạo GẠO SẠCH 3 MIỀN cung cấp đều đảm bảo an toàn – đồng nhất – truy xuất được nguồn gốc.</p>
+                        <p class="text-lg text-gray-600 leading-relaxed">GẠO SẠCH 3 MIỀN – Gạo sạch, quy trình sạch, vì sức khỏe người tiêu dùng.</p>
                     </div>
                 </div>
             </div>
@@ -171,7 +169,7 @@
         <section class="py-20 bg-[#F0F9FF]">
             <div class="container mx-auto px-4 overflow-hidden">
                 <div class="text-center mb-8 md:mb-16">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-4 md:mb-8 text-primary">Lịch sử hình thành</h2>
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4 md:mb-8 text-primary">GẠO SẠCH 3 MIỀN </h2>
                 </div>
                 <div class="relative max-w-4xl mx-auto">
                     <div class="timeline-line"></div>
@@ -180,11 +178,17 @@
                             <div class="timeline-dot md:top-1/2 top-0"></div>
                             <div class="md:text-right md:pr-8 pl-8 md:pl-0">
                                 <div class="bg-primary text-white px-4 py-2 rounded-full inline-block mb-4">
-                                    <span class="font-bold">1990</span>
+                                    <span class="font-bold">Gạo Trắng</span>
                                 </div>
-                                <h3 class="text-xl font-bold mb-2 text-gray-800">Khởi đầu từ những cánh đồng lúa</h3>
-                                <p class="text-gray-600">Bắt đầu với việc canh tác lúa tại vùng đồng bằng sông Cửu Long,
-                                    tập trung vào chất lượng và an toàn thực phẩm.</p>
+                                <h3 class="text-xl font-bold mb-2 text-gray-800">Dòng gạo chuyên dùng cho bếp ăn công nghiệp –
+                                     Giải pháp tối ưu cho suất ăn số lượng lớn</h3>
+                                <p class="text-gray-600">GẠO SẠCH 3 MIỀN cung cấp dòng gạo chất lượng ổn định, 
+                                    được tuyển chọn kỹ lưỡng, đặc biệt phù hợp cho các bếp ăn công nghiệp như nhà máy, 
+                                    khu chế xuất, trường học, bệnh viện và doanh nghiệp dịch vụ suất ăn. Gạo có đặc tính nở đều, 
+                                    cơm mềm nhưng không nhão, giữ được độ ngon sau thời gian dài bảo quản trong nhiệt độ phòng, 
+                                    đáp ứng yêu cầu về khẩu phần lớn và thời gian phục vụ kéo dài.</p>
+                                <p class="text-gray-600">Với giá thành cạnh tranh, nguồn cung ổn định và khả năng giao hàng nhanh chóng, 
+                                    dòng gạo công nghiệp của GẠO SẠCH 3 MIỀN giúp các đơn vị tối ưu chi phí mà vẫn đảm bảo chất lượng suất ăn.</p>
                             </div>
                             <div class="hidden md:block"></div>
                         </div>
@@ -193,71 +197,37 @@
                             <div class="hidden md:block"></div>
                             <div class="pl-8">
                                 <div class="bg-secondary text-white px-4 py-2 rounded-full inline-block mb-4">
-                                    <span class="font-bold">2003</span>
+                                    <span class="font-bold">Gạo ST25</span>
                                 </div>
-                                <h3 class="text-xl font-bold mb-2 text-gray-800">Thành lập công ty Gạo sạch 3 miền</h3>
-                                <p class="text-gray-600">Chính thức thành lập công ty với tầm nhìn mang gạo Việt Nam ra
-                                    thế giới.</p>
+                                <h3 class="text-xl font-bold mb-2 text-gray-800">Dòng gạo cao cấp cho những bữa ăn chất lượng vượt trội</h3>
+                                <p class="text-gray-600">GẠO SẠCH 3 MIỀN tự hào cung cấp gạo ST25 – một trong những giống gạo ngon nhất thế giới, 
+                                    được nghiên cứu và phát triển tại Sóc Trăng, Việt Nam. Với hạt gạo dài, 
+                                    trắng trong, thơm tự nhiên, cơm dẻo mềm và vị ngọt thanh, ST25 không chỉ đáp ứng nhu cầu ẩm thực 
+                                    cao cấp mà còn chinh phục được những khách hàng khó tính nhất.</p>
+                                <p class="text-gray-600">Gạo ST25 của GẠO SẠCH 3 MIỀN được tuyển chọn kỹ lưỡng, đảm bảo chất lượng đồng đều, 
+                                    không pha trộn, phù hợp cho các nhà hàng, khách sạn, 
+                                    chuỗi suất ăn cao cấp và các doanh nghiệp xuất khẩu. Sản phẩm đáp ứng đầy đủ các tiêu chuẩn 
+                                    an toàn thực phẩm và truy xuất nguồn gốc rõ ràng.</p>
+                                <p class="text-gray-600">ST25 – Tinh hoa gạo Việt, nâng tầm bữa ăn Việt.</p>
                             </div>
                         </div>
                         <div class="relative grid md:grid-cols-2 grid-cols-1 gap-4 md:gap-8 items-center">
                             <div class="timeline-dot" style="top: 50%;"></div>
                             <div class="text-right pr-8">
                                 <div class="bg-primary text-white px-4 py-2 rounded-full inline-block mb-4">
-                                    <span class="font-bold">2010</span>
+                                    <span class="font-bold">Gạo từ thiện</span>
                                 </div>
-                                <h3 class="text-xl font-bold mb-2 text-gray-800">Mở rộng quy mô sản xuất</h3>
-                                <p class="text-gray-600">Đầu tư nhà máy chế biến hiện đại và mở rộng vùng nguyên liệu ra
-                                    cả 3 miền.</p>
+                                <h3 class="text-xl font-bold mb-2 text-gray-800">Chia sẻ yêu thương từ những hạt gạo nghĩa tình</h3>
+                                <p class="text-gray-600">GẠO SẠCH 3 MIỀN cung cấp dòng gạo chuyên dùng cho các chương trình từ thiện, 
+                                    cứu trợ và hỗ trợ cộng đồng. Với tiêu chí giá thành hợp lý – chất lượng đảm bảo – nguồn cung ổn định,
+                                     dòng gạo từ thiện của chúng tôi giúp các tổ chức, đoàn thể, chùa chiền, nhóm thiện nguyện và doanh nghiệp
+                                      dễ dàng triển khai các hoạt động phát quà, nấu ăn, hỗ trợ người khó khăn một cách hiệu quả và bền vững.</p>
+                                <p class="text-gray-600">Gạo được chọn lựa kỹ lưỡng, hạt đẹp, cơm nở vừa, không khô vụn, đảm bảo an toàn vệ sinh thực phẩm.
+                                     GẠO SẠCH 3 MIỀN cam kết đồng hành cùng các hoạt động thiện nguyện bằng chính sự uy tín và trách nhiệm với cộng đồng.</p>
+                                <p class="text-gray-600">GẠO SẠCH 3 MIỀN – Lan tỏa giá trị nhân văn qua từng hạt gạo.</p>
                             </div>
                             <div></div>
                         </div>
-                        <div class="relative grid md:grid-cols-2 grid-cols-1 gap-4 md:gap-8 items-center">
-                            <div class="timeline-dot" style="top: 50%;"></div>
-                            <div></div>
-                            <div class="pl-8">
-                                <div class="bg-secondary text-white px-4 py-2 rounded-full inline-block mb-4">
-                                    <span class="font-bold">2015</span>
-                                </div>
-                                <h3 class="text-xl font-bold mb-2 text-gray-800">Đạt chứng nhận quốc tế</h3>
-                                <p class="text-gray-600">Nhận được các chứng nhận HACCP, ISO 22000 và bắt đầu xuất khẩu.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="relative grid md:grid-cols-2 grid-cols-1 gap-4 md:gap-8 items-center">
-                            <div class="timeline-dot" style="top: 50%;"></div>
-                            <div class="text-right pr-8">
-                                <div class="bg-primary text-white px-4 py-2 rounded-full inline-block mb-4">
-                                    <span class="font-bold">2018</span>
-                                </div>
-                                <h3 class="text-xl font-bold mb-2 text-gray-800">Phát triển gạo hữu cơ</h3>
-                                <p class="text-gray-600">Ra mắt dòng sản phẩm gạo hữu cơ đạt tiêu chuẩn quốc tế.</p>
-                            </div>
-                            <div></div>
-                        </div>
-                        <div class="relative grid md:grid-cols-2 grid-cols-1 gap-4 md:gap-8 items-center">
-                            <div class="timeline-dot" style="top: 50%;"></div>
-                            <div></div>
-                            <div class="pl-8">
-                                <div class="bg-secondary text-white px-4 py-2 rounded-full inline-block mb-4">
-                                    <span class="font-bold">2020</span>
-                                </div>
-                                <h3 class="text-xl font-bold mb-2 text-gray-800">Ứng dụng công nghệ 4.0</h3>
-                                <p class="text-gray-600">Đầu tư hệ thống quản lý chất lượng và truy xuất nguồn gốc hiện
-                                    đại.</p>
-                            </div>
-                        </div>
-                        <div class="relative grid md:grid-cols-2 grid-cols-1 gap-4 md:gap-8 items-center">
-                            <div class="timeline-dot" style="top: 50%;"></div>
-                            <div class="text-right pr-8">
-                                <div class="bg-primary text-white px-4 py-2 rounded-full inline-block mb-4">
-                                    <span class="font-bold">2023</span>
-                                </div>
-                                <h3 class="text-xl font-bold mb-2 text-gray-800">Mở rộng thị trường quốc tế</h3>
-                                <p class="text-gray-600">Xuất khẩu đến hơn 30 quốc gia và nhận nhiều giải thưởng uy tín.
-                                </p>
-                            </div>
-                            <div></div>
                         </div>
                     </div>
                 </div>

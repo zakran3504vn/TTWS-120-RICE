@@ -1,3 +1,9 @@
+<?php
+include('./config/db_connection.php');
+$sql1= "SELECT `CategoryID`, `CategoryName`,`isTop`,`CreatedAt`, `description`,`CategoryImg` FROM `category`";
+$categories = $conn->query($sql1);
+$category_id = isset($_GET['category_id']) ? intval($_GET['category_id']) : 0;
+?>
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -68,8 +74,8 @@
 
 <body class="bg-white">
     <?php
-     $current_page = 'home';
-     include ("./includes/header.php");
+    $current_page = 'home';
+    include("./includes/header.php");
     ?>
     <main>
         <section class="relative pt-24 pb-16 overflow-hidden"
@@ -129,14 +135,10 @@
                             }
                         </style>
                         <h1 class="text-5xl font-bold mb-6 animated-title">Gạo sạch 3 miền</h1>
-                        <p class="text-xl text-gray-600 mb-8 fade-in">Chất Lượng Tạo Nên Thương Hiệu - Mang đến cho gia
-                            đình bạn những hạt gạo thơm ngon, dinh dưỡng nhất từ cánh đồng màu mỡ của Việt Nam.</p>
+                        <p class="text-xl text-gray-600 mb-8 fade-in">Chất Lượng Tạo Nên Thương Hiệu - Mang đến cho gia đình bạn những hạt gạo thơm ngon, dinh dưỡng nhất từ cánh đồng màu mỡ của Việt Nam.</p>
                         <div class="flex gap-4">
-                            <button class="!rounded-button bg-primary text-white px-8 py-3 hover:bg-primary/90">Khám phá
-                                ngay</button>
-                            <button
-                                class="!rounded-button border-2 border-primary text-primary px-8 py-3 hover:bg-primary/10">Tìm
-                                hiểu thêm</button>
+                            <button class="!rounded-button bg-primary text-white px-8 py-3 hover:bg-primary/90">Khám phá ngay</button>
+                            <button class="!rounded-button border-2 border-primary text-primary px-8 py-3 hover:bg-primary/10">Tìm hiểu thêm</button>
                         </div>
                     </div>
                     <div class="relative">
@@ -191,155 +193,101 @@
             });
         </script>
         <section class="py-16 bg-gray-50">
-            <div class="container mx-auto px-4">
-                <h2 class="text-4xl font-bold text-center mb-12 text-primary">Danh Mục Sản Phẩm</h2>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
-                    <a href="#" class="text-center">
-                        <div
-                            class="w-32 h-32 mx-auto mb-4 rounded-full bg-white shadow-lg p-4 flex items-center justify-center">
-                            <img src="./assets/uploads/309d830bc5aca99a7dd8cba71bff9ade.jpg" alt="Gạo Trắng"
-                                class="w-full h-full object-cover rounded-full">
-                        </div>
-                        <h3 class="font-semibold mb-2 text-2xl">Gạo Trắng</h3>
-                        <p class="text-xl text-gray-600">Dòng gạo chuyên dùng cho bếp ăn công nghiệp – Giải pháp tối ưu
-                            cho suất ăn số lượng lớn</p>
-                    </a>
-                    <a href="#" class="text-center">
-                        <div
-                            class="w-32 h-32 mx-auto mb-4 rounded-full bg-white shadow-lg p-4 flex items-center justify-center">
-                            <img src="./assets/uploads/c6871bc34d183c72a8d55d0b241f7255.jpg" alt="Gạo ST25"
-                                class="w-full h-full object-cover rounded-full">
-                        </div>
-                        <h3 class="font-semibold mb-2 text-2xl">Gạo ST25</h3>
-                        <p class="text-xl text-gray-600">Dòng gạo cao cấp cho những bữa ăn chất lượng vượt trội</p>
-                    </a>
-                    <a href="#" class="text-center">
-                        <div
-                            class="w-32 h-32 mx-auto mb-4 rounded-full bg-white shadow-lg p-4 flex items-center justify-center">
-                            <img src="./assets/uploads/721131222299550dad59bbf0f895716a.jpg" alt="Gạo Từ Thiện"
-                                class="w-full h-full object-cover rounded-full">
-                        </div>
-                        <h3 class="font-semibold mb-2 text-2xl">Gạo Từ Thiện</h3>
-                        <p class="text-xl text-gray-600">Chia sẻ yêu thương từ những hạt gạo nghĩa tình</p>
-                    </a>
-                    <a href="#" class="text-center">
-                        <div
-                            class="w-32 h-32 mx-auto mb-4 rounded-full bg-white shadow-lg p-4 flex items-center justify-center">
-                            <img src="./assets/uploads/22f7b2962ce9d54361110aa41f05f155.jpg" alt="Gạo Sạch 3 Miền"
-                                class="w-full h-full object-cover rounded-full">
-                        </div>
-                        <h3 class="font-semibold mb-2 text-2xl">Gạo Sạch 3 Miền</h3>
-                        <p class="text-xl text-gray-600">Lan tỏa giá trị nhân văn qua từng hạt gạo</p>
-                    </a>
-                    <a href="#" class="text-center">
-                        <div
-                            class="w-32 h-32 mx-auto mb-4 rounded-full bg-white shadow-lg p-4 flex items-center justify-center">
-                            <img src="./assets/uploads/369308852e044e1c2fe936dd74cb3332.jpg" alt="Gạo Đài Thơm 8"
-                                class="w-full h-full object-cover rounded-full">
-                        </div>
-                        <h3 class="font-semibold mb-2 text-2xl">Gạo Đài Thơm 8</h3>
-                        <p class="text-xl text-gray-600">Gạo organic chứng nhận</p>
-                    </a>
-                </div>
-            </div>
-        </section>
+    <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-center mb-12 text-primary">Danh Mục Sản Phẩm</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+
+            <?php foreach ($categories as $category): ?>
+                <a href="san-pham/detail_product.php?category_id=<?php echo $category['CategoryID']; ?>" class="text-center">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-white shadow-lg p-4 flex items-center justify-center">
+                        <img src="./admin/assets/img/<?php echo $category['CategoryImg']; ?>" 
+                             alt="<?php echo $category['CategoryName']; ?>" 
+                             class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <h3 class="font-semibold mb-2 text-2xl"><?php echo $category['CategoryName']; ?></h3>
+                    <p class="text-xl text-gray-600"><?php echo $category['description']; ?></p>
+                </a>
+            <?php endforeach; ?>
+
+        </div>
+    </div>
+</section>
+
+
+
         <section class="py-16">
             <div class="container mx-auto px-4">
                 <h2 class="text-4xl text-primary font-bold text-center mb-12">Sản Phẩm Nổi Bật</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <img src="./assets/uploads/b54bc4fbf0f8ebfca58381e3e64f03c9.jpg" alt="Gạo ST25"
-                            class="w-full h-auto object-cover">
-                        <div class="p-6">
-                            <h3 class="text-2xl font-semibold mb-2">Gạo ST25 Harmony</h3>
-                            <p class="text-gray-600 mb-4 text-xl">Gạo đạt giải nhất thế giới với hương thơm tự nhiên,
-                                cơm mềm dẻo, vị ngọt đậm đà. Được canh tác tại vùng đồng bằng sông Cửu Long.</p>
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="flex flex-col">
-                                    <span class="text-primary font-bold text-2xl">Liên hệ</span>
+                <?php
+                // Truy vấn sản phẩm nổi bật cho phần đầu tiên
+                $resultproducts = $conn->query("SELECT product_id, product_img AS image, product_name AS name, product_description AS description, product_price AS price FROM products WHERE product_features = 1");
+                if ($resultproducts === false) {
+                    echo "<p class='text-red-500 text-center'>Lỗi truy vấn: " . htmlspecialchars($conn->error) . "</p>";
+                } else if ($resultproducts->num_rows === 0) {
+                    echo "<p class='text-gray-600 text-center'>Không có sản phẩm nổi bật.</p>";
+                } else {
+                ?>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <?php while ($row = $resultproducts->fetch_assoc()): ?>
+                            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                                <img src="./admin/assets/img/<?= $row['image']; ?>"
+                                     alt="<?php echo htmlspecialchars($row['name']); ?>"
+                                     class="w-full h-auto object-cover">
+                                <div class="p-6">
+                                    <h3 class="text-2xl font-semibold mb-2"><?php echo htmlspecialchars($row['name']); ?></h3>
+                                    <p class="text-gray-600 mb-4 text-xl"><?php echo htmlspecialchars($row['description']); ?></p>
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div class="flex flex-col">
+                                            <span class="text-primary font-bold text-2xl">
+                                                <?php echo number_format($row['price'], 0, ',', '.') . '₫'; ?>
+                                            </span>
+                                        </div>
+                                        <a href="./san-pham/detail_product.php?id=<?php echo $row['product_id']; ?>"
+                                           class="!rounded-button bg-primary text-white px-6 py-2 hover:bg-primary/90 text-2xl">
+                                            Xem chi tiết
+                                        </a>
+                                    </div>
                                 </div>
-                                <a href="#"
-                                    class="!rounded-button bg-primary text-white px-6 py-2 hover:bg-primary/90 text-2xl">Xem
-                                    chi
-                                    tiết</a>
                             </div>
-                        </div>
+                        <?php endwhile; ?>
                     </div>
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <img src="./assets/uploads/d091a4b93a5df65fa50f62731d636722.jpg" alt="Gạo Japonica"
-                            class="w-full h-auto object-cover">
-                        <div class="p-6">
-                            <h3 class="text-2xl font-semibold mb-2">Gạo Japonica Premium</h3>
-                            <p class="text-gray-600 mb-4 text-xl">Hạt gạo tròn đều, cơm dẻo mềm đặc trưng, thích hợp làm
-                                sushi và các món ăn Nhật Bản. Được canh tác theo tiêu chuẩn Nhật.</p>
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="flex flex-col">
-                                    <span class="text-primary font-bold text-2xl">Liên hệ</span>
-                                </div>
-                                <a href="#"
-                                    class="!rounded-button bg-primary text-white px-6 py-2 hover:bg-primary/90 text-4xl">Xem
-                                    chi
-                                    tiết</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <img src="./assets/uploads/ad0408c79b5172de1b2e651f854b37e3.jpg" alt="Gạo Japonica"
-                            class="w-full h-auto object-cover">
-                        <div class="p-6">
-                            <h3 class="text-2xl font-semibold mb-2">Gạo Japonica Premium</h3>
-                            <p class="text-gray-600 mb-4 text-xl">Hạt gạo tròn đều, cơm dẻo mềm đặc trưng, thích hợp làm
-                                sushi và các món ăn Nhật Bản. Được canh tác theo tiêu chuẩn Nhật.</p>
-                            <div class="flex items-center justify-between mb-4">
-                                <div class="flex flex-col">
-                                    <span class="text-primary font-bold text-2xl">Liên hệ</span>
-                                </div>
-                                <a href="#"
-                                    class="!rounded-button bg-primary text-white px-6 py-2 hover:bg-primary/90 text-4xl">Xem
-                                    chi
-                                    tiết</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                }
+                ?>
             </div>
         </section>
-        <style>
-            .wave-bg {
-                background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
-                position: relative;
-                overflow: hidden;
-            }
-
-            .wave-bg::before {
-                content: '';
-                position: absolute;
-                width: 200%;
-                height: 200%;
-                top: -50%;
-                left: -50%;
-                background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 60%);
-                animation: rotate 20s linear infinite;
-            }
-
-            @keyframes rotate {
-                from {
-                    transform: rotate(0deg);
-                }
-
-                to {
-                    transform: rotate(360deg);
-                }
-            }
-
-            .story-card {
-                backdrop-filter: blur(8px);
-                background: rgba(255, 255, 255, 0.1);
-                border: 1px solid rgba(255, 255, 255, 0.2);
-            }
-        </style>
-        <section class="py-24 wave-bg text-white">
+        <!-- <section class="py-24 wave-bg text-white">
             <div class="container mx-auto px-4">
+                <style>
+                    .wave-bg::before {
+                        content: '';
+                        position: absolute;
+                        width: 200%;
+                        height: 200%;
+                        top: -50%;
+                        left: -50%;
+                        background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 60%);
+                        animation: rotate 20s linear infinite;
+                    }
+
+                    @keyframes rotate {
+                        from {
+                            transform: rotate(0deg);
+                        }
+
+                        to {
+                            transform: rotate(360deg);
+                        }
+                    }
+
+                    .story-card {
+                        backdrop-filter: blur(8px);
+                        background: rgba(255, 255, 255, 0.1);
+                        border: 1px solid rgba(255, 255, 255, 0.2);
+                    }
+                </style>
+                <div class="relative z-10">
+          <div class="container mx-auto px-4">
                 <div class="relative z-10">
                     <h2 class="text-4xl font-bold text-center mb-4">Câu Chuyện Thương Hiệu</h2>
                     <p class="text-lg text-center mb-16 max-w-3xl mx-auto text-white/90">Khám phá hành trình 20 năm phát
@@ -395,7 +343,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <section class="py-16 bg-gray-50">
             <div class="container mx-auto px-4">
                 <h2 class="text-4xl text-primary font-bold text-center mb-12">Đối Tác Của Chúng Tôi</h2>

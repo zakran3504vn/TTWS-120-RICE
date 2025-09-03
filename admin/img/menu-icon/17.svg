@@ -1,0 +1,15 @@
+<svg id="_10" data-name="10" xmlns="http://www.w3.org/2000/svg" width="20.708" height="20.871" viewBox="0 0 20.708 20.871">
+  <!-- Hình ổ khóa -->
+  <g id="lock" fill="#7C7CA4">
+    <rect x="16" y="28" width="32" height="28" rx="4" />
+    <path d="M32 20a8 8 0 018 8v4H24v-4a8 8 0 018-8zm0-4a12 12 0 00-12 12v4h24v-4a12 12 0 00-12-12z" />
+  </g>
+
+  <!-- Đường biểu đồ -->
+  <g id="seo-graph" stroke="#7C7CA4" stroke-width="3" fill="none">
+    <path d="M10 48 Q20 35, 32 42 T54 22" />
+    <circle cx="10" cy="48" r="3" fill="#7C7CA4" />
+    <circle cx="32" cy="42" r="3" fill="#7C7CA4" />
+    <circle cx="54" cy="22" r="3" fill="#7C7CA4" />
+  </g>
+</svg>
