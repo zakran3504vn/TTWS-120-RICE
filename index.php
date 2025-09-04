@@ -235,7 +235,9 @@ $category_id = isset($_GET['category_id']) ? intval($_GET['category_id']) : 0;
                                      class="w-full h-auto object-cover">
                                 <div class="p-6">
                                     <h3 class="text-2xl font-semibold mb-2"><?php echo htmlspecialchars($row['name']); ?></h3>
-                                    <p class="text-gray-600 mb-4 text-xl"><?php echo htmlspecialchars($row['description']); ?></p>
+                                    <p class="text-gray-600 mb-4 text-xl">
+                                        <?= nl2br(strip_tags($row['description'])); ?>
+                                    </p>
                                     <div class="flex items-center justify-between mb-4">
                                         <div class="flex flex-col">
                                             <span class="text-primary font-bold text-2xl">

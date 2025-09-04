@@ -1,18 +1,51 @@
 <?php
 include '../config/db_connection.php';
-$id_product = intval($_GET['id']) ;
-$sql= "SELECT `product_id`,`product_name`,`product_description`,`product_img`,`create_at`,`product_price`,`product_album`,`CategoryID` FROM `products` WHERE `product_id` = $id_product";
-$result = $conn->query($sql);
-$product = $result->fetch_assoc();
+
+$id_product = isset($_GET['id']) ? intval($_GET['id']) : 0;
+$category_id = isset($_GET['category_id']) ? intval($_GET['category_id']) : 0;
+$product = null;
+
+// Nếu có id → lấy sản phẩm theo id
+if ($id_product > 0) {
+    $sql = "SELECT `product_id`,`product_name`,`product_description`,`product_img`,`create_at`,
+                   `product_price`,`product_album`,`CategoryID` 
+            FROM `products` 
+            WHERE `product_id` = $id_product";
+    $result = $conn->query($sql);
+    $product = $result->fetch_assoc();
+}
+
+// Nếu không có id nhưng có category_id → lấy 1 sản phẩm bất kỳ trong category đó
+if (!$product && $category_id > 0) {
+    $sql = "SELECT `product_id`,`product_name`,`product_description`,`product_img`,`create_at`,
+                   `product_price`,`product_album`,`CategoryID` 
+            FROM `products` 
+            WHERE `CategoryID` = $category_id 
+            LIMIT 1";
+    $result = $conn->query($sql);
+    $product = $result->fetch_assoc();
+    $id_product = $product['product_id'] ?? 0;
+}
+
+// Nếu vẫn không có sản phẩm → thoát
+if (!$product) {
+    die("<h2 style='color:red; text-align:center;'>❌ Không tìm thấy sản phẩm</h2>");
+}
+
+// Lấy category_id của sản phẩm chính
 $category_id = $product['CategoryID'] ?? null;
 
+// Lấy sản phẩm tương tự
 $same_products = [];
 if ($category_id) {
-    $sql1 = "SELECT `product_id`,`product_name`,`product_description`,`product_img`,`create_at`,`product_price`,`product_album` FROM `products` WHERE `CategoryID` = $category_id AND `product_id` != $id_product LIMIT 4";
+    $sql1 = "SELECT `product_id`,`product_name`,`product_description`,`product_img`,`create_at`,`product_price`,`product_album` 
+             FROM `products` 
+             WHERE `CategoryID` = $category_id AND `product_id` != $id_product 
+             LIMIT 4";
     $same_products = $conn->query($sql1);
 }
-$category_id = isset($_GET['category_id']) ? intval($_GET['category_id']) : 0;
 ?>
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>

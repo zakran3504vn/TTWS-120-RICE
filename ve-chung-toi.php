@@ -228,6 +228,26 @@
                             </div>
                             <div></div>
                         </div>
+                        <div class="hidden md:block"></div>
+                        </div>
+                        <div class="relative grid md:grid-cols-2 grid-cols-1 gap-4 md:gap-8 items-center">
+                            <div class="timeline-dot md:top-1/2 top-0"></div>
+                            <div class="hidden md:block"></div>
+                            <div class="pl-8">
+                                <div class="bg-secondary text-white px-4 py-2 rounded-full inline-block mb-4">
+                                    <span class="font-bold">Gạo Đài Thơm 8</span>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2 text-gray-800">Mềm dẻo thơm ngon, phù hợp mọi bữa ăn gia đình và công nghiệp</h3>
+                                <p class="text-gray-600">GẠO SẠCH 3 MIỀN cung cấp gạo Đài Thơm 8 – 
+                                    giống lúa chất lượng cao được canh tác chủ yếu tại các tỉnh Đồng bằng sông Cửu Long. 
+                                    Gạo có hạt thon dài, trắng đẹp, khi nấu cho cơm dẻo mềm, thơm nhẹ tự nhiên, giữ được độ ngon khi để nguội, 
+                                    rất phù hợp cho bữa ăn gia đình, suất ăn công nghiệp, nhà hàng, trường học và bệnh viện.</p>
+                                <p class="text-gray-600">Với ưu điểm ổn định về chất lượng và giá cả, 
+                                    gạo Đài Thơm 8 của GẠO SẠCH 3 MIỀN là lựa chọn tối ưu cho các đơn vị cần nguồn gạo ngon, 
+                                    đáng tin cậy và dễ chế biến hàng ngày.</p>
+                                <p class="text-gray-600">GẠO SẠCH 3 MIỀN – Cung cấp gạo Đài Thơm 8 chuẩn chất lượng, giao hàng đúng hẹn.</p>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
