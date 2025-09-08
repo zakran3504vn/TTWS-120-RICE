@@ -1,6 +1,9 @@
 <!-- PHP -->
 <?php
 include 'config/db_connection.php';
+$sqlBrands = "SELECT brandID, brandName FROM brands";
+$resultBrands = $conn->query($sqlBrands);
+$brand_id = $_POST['brandID'] ?? null;
 
 $img_path = '../admin/assets/img/';
 $success_message = "";
@@ -119,6 +122,7 @@ if (isset($_POST['update_product'])) {
         $sql = "UPDATE products SET 
                 product_name = ?, 
                 CategoryID = ?, 
+                brandID = ?, 
                 product_description = ?, 
                 product_price = ?, 
                 product_img = ?, 
@@ -131,9 +135,10 @@ if (isset($_POST['update_product'])) {
                 WHERE product_id = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param(
-            "sissssissii",
+            "siissssissii",
             $product_name,
             $category_id,
+            $brand_id,
             $product_description,
             $product_price,
             $product_img,
@@ -357,6 +362,23 @@ if (!empty($success_message)) {
                                                     ?>
                                                 </select>
                                             </div>
+                                            <div class="mb-3">
+                                                <label for="brandID" class="form-label">Xuất xứ (Brand):</label>
+                                                <select name="brandID" id="brandID" class="form-control" required>
+                                                    <option value="">Chọn xuất xứ</option>
+                                                    <?php
+                                                    if ($resultBrands->num_rows > 0) {
+                                                        while ($rowBrand = $resultBrands->fetch_assoc()) {
+                                                            $selected = ($rowBrand['brandID'] == $product['brandID']) ? 'selected' : '';
+                                                            echo '<option value="' . $rowBrand['brandID'] . '" ' . $selected . '>' . $rowBrand['brandName'] . '</option>';
+                                                        }
+                                                    } else {
+                                                        echo '<option value="">Không có dữ liệu</option>';
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
+
                                             <div class="mb-3">
                                                 <label for="product_description" class="form-label">Mô Tả:</label>
                                                 <textarea id="product_description" name="product_description" class="form-control" rows="4" required><?php echo htmlspecialchars($product['product_description']); ?></textarea>

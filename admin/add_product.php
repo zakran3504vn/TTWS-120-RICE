@@ -2,6 +2,11 @@
 <?php
 include 'config/db_connection.php';
 
+$sqlBrands = "SELECT brandID, brandName FROM brands";
+$resultBrands = $conn->query($sqlBrands);
+$brand_id = $_POST['brand_id'] ?? null;
+
+
 $img_path = '../admin/assets/img/';
 $success_message = "";
 $errors = [];
@@ -87,13 +92,14 @@ if (isset($_POST['create_product'])) {
     
     if (empty($errors)) {
         $sql = "INSERT INTO products 
-        (product_name, CategoryID, product_description, product_price, product_img, product_album, product_pricesales, product_parameters, product_services, stock_quantity, create_at) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
+        (product_name, CategoryID, brandID, product_description, product_price, product_img, product_album, product_pricesales, product_parameters, product_services, stock_quantity, create_at) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param(
-            "sissssissi",
+            "siisssisisi",
             $product_name,
             $category_id,
+            $brand_id,
             $product_description,
             $product_price,
             $product_img,
@@ -313,6 +319,22 @@ if (!empty($success_message)) {
                                                     ?>
                                                 </select>
                                             </div>
+                                            <div class="mb-3">
+                                            <label for="brandID" class="form-label">Xuất Xứ:</label>
+                                            <select name="brand_id" id="brandID" class="form-control" required>
+                                                <option value="">Chọn xuất xứ</option>
+                                                <?php
+                                                if ($resultBrands->num_rows > 0) {
+                                                    while ($row = $resultBrands->fetch_assoc()) {
+                                                        echo '<option value="' . $row['brandID'] . '">' . $row['brandName'] . '</option>';
+                                                    }
+                                                } else {
+                                                    echo '<option value="">Chưa có dữ liệu xuất xứ</option>';
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+
                                             <div class="mb-3">
                                                 <label for="product_description" class="form-label">Mô Tả:</label>
                                                 <textarea id="product_description" name="product_description" class="form-control" rows="4" required><?php echo "Nhập Mô Tả"; ?></textarea>
