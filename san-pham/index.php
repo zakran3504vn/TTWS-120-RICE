@@ -1,3 +1,20 @@
+<?php
+include '../config/db_connection.php';
+$sql= "SELECT `product_id`,`product_name`,`product_description`,`product_img`,`create_at`,`product_price`,`brandID`, `CategoryID` FROM `products`";
+$result = $conn->query($sql);
+
+
+$sql2= "SELECT `brandID`, `brandName`,`brandDescription`,`brandImg`,`createdAt` FROM `brands`";
+$brands = $conn->query($sql2);
+
+if (!$brands) {
+    die("Query lỗi: " . $conn->error);
+}
+
+
+$sql1= "SELECT `CategoryID`, `CategoryName`,`isTop`,`CreatedAt` FROM `category`";
+$categories = $conn->query($sql1);
+?>
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -112,43 +129,35 @@
                     <div class="mb-8">
                         <h3 class="font-semibold mb-4">Loại gạo</h3>
                         <div class="space-y-3">
+                        
+                         <?php 
+                        foreach ($categories as $category) {
+                            ?>
                             <label class="flex items-center gap-3 cursor-pointer">
-                                <input type="checkbox" class="accent-primary" data-filter="type" value="gao-trang">
-                                <span class="text-gray-700">Gạo trắng</span>
+                                <input type="checkbox" class="accent-primary" data-filter="type" value="<?php echo $category['CategoryID']; ?>">
+                                <span class="text-gray-700"><?php echo $category['CategoryName']; ?></span>
+                               
                             </label>
-                            <label class="flex items-center gap-3 cursor-pointer">
-                                <input type="checkbox" class="accent-primary" data-filter="type" value="gao-lut">
-                                <span class="text-gray-700">Gạo lứt</span>
-                            </label>
-                            <label class="flex items-center gap-3 cursor-pointer">
-                                <input type="checkbox" class="accent-primary" data-filter="type" value="gao-nep">
-                                <span class="text-gray-700">Gạo nếp</span>
-                            </label>
-                            <label class="flex items-center gap-3 cursor-pointer">
-                                <input type="checkbox" class="accent-primary" data-filter="type" value="gao-nhat">
-                                <span class="text-gray-700">Gạo Nhật</span>
-                            </label>
-                            <label class="flex items-center gap-3 cursor-pointer">
-                                <input type="checkbox" class="accent-primary" data-filter="type" value="gao-huu-co">
-                                <span class="text-gray-700">Gạo hữu cơ</span>
-                            </label>
+                            <?php
+                        }
+                        ?>
+
                         </div>
                     </div>
                     <div class="mb-8">
                         <h3 class="font-semibold mb-4">Xuất xứ</h3>
                         <div class="space-y-3">
+
+                         <?php
+                         foreach ($brands as $brand) {
+                            ?>
                             <label class="flex items-center gap-3 cursor-pointer">
-                                <input type="checkbox" class="accent-primary" data-filter="origin" value="viet-nam">
-                                <span class="text-gray-700">Việt Nam</span>
+                                <input type="checkbox" class="accent-primary" data-filter="origin" value="<?php echo $brand['brandID']; ?>">
+                                <span class="text-gray-700"><?php echo $brand['brandName']; ?></span>
                             </label>
-                            <label class="flex items-center gap-3 cursor-pointer">
-                                <input type="checkbox" class="accent-primary" data-filter="origin" value="nhat-ban">
-                                <span class="text-gray-700">Nhật Bản</span>
-                            </label>
-                            <label class="flex items-center gap-3 cursor-pointer">
-                                <input type="checkbox" class="accent-primary" data-filter="origin" value="thai-lan">
-                                <span class="text-gray-700">Thái Lan</span>
-                            </label>
+                                  <?php
+                        }
+                        ?>
                         </div>
                     </div>
                     <a href="#" id="reset-filters"
@@ -188,32 +197,34 @@
                             </button>
                         </div>
                     </div>
+                    
                     <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <?php
+                    foreach ($result as $product) {
+                        ?>
                         <div class="bg-white rounded-lg shadow-lg overflow-hidden group product-item"
-                            data-type="gao-trang" data-origin="viet-nam" data-popularity="100" data-date="2023-01-01">
+                            data-type="<?= $product['CategoryID']; ?>" data-origin="<?= $product['brandID']; ?>" data-popularity="100" data-date="<?= date('Y-m-d', strtotime($product['create_at'])); ?>">
                             <div class="relative">
-                                <img src="../assets/uploads/551c9a480c1dbb9366c93e5678c4eb36.jpg"
+                                <img src="../admin/assets/img/<?php echo $product['product_img']; ?>"
                                     alt="Gạo ST25" class="w-full h-48 object-cover">
                             </div>
                             <div class="p-6">
-                                <h3 class="text-xl font-semibold mb-2">Gạo ST25 Đặc Sản</h3>
-                                <p class="text-gray-600 mb-4">Gạo ST25 là giống gạo nổi tiếng của Việt Nam, được công
-                                    nhận là gạo ngon nhất thế giới năm 2019 tại cuộc thi World's Best Rice. Hạt gạo dài,
-                                    trắng trong, khi nấu chín dẻo thơm, giàu dinh dưỡng với hàm lượng protein cao, phù
-                                    hợp cho bữa ăn hàng ngày và các món ăn đặc sản. Sản phẩm được trồng theo quy trình
-                                    hữu cơ, đảm bảo an toàn và chất lượng cao nhất.</p>
+                                <h3 class="text-xl font-semibold mb-2"><?php echo $product['product_name']; ?></h3>
+                                <p class="text-gray-600 mb-4"><?php echo $product['product_description']; ?></p>
                                 <div class="flex items-center justify-between mb-4">
-                                    <div class="text-primary font-bold text-xl">Liên hệ</div>
+                                    <div class="text-primary font-bold text-xl"><?php echo number_format($product['product_price'], 0, ',', '.') . ' ₫'; ?></div>
                                 </div>
-                                <a href="./detail_product.php"
-                                    data-readdy="true" class="block">
-                                    <button
-                                        class="!rounded-button bg-primary text-white px-6 py-2 w-full hover:bg-primary/90">Xem
-                                        chi tiết</button>
-                                </a>
+                             <a href="./detail_product.php?id=<?= $product['product_id']; ?>" data-readdy="true" class="block">
+                                <button class="!rounded-button bg-primary text-white px-6 py-2 w-full hover:bg-primary/90">
+                                    Xem chi tiết
+                                </button>
+                            </a>
                             </div>
                         </div>
                         <!-- Thêm nhiều sản phẩm khác để demo, với data-type, data-origin, data-popularity (số cao hơn = phổ biến hơn), data-date (YYYY-MM-DD) -->
+                      <?php
+                        }
+                        ?>
                     </div>
                     <div class="flex items-center justify-between mt-8 flex-col lg:flex-row gap-4">
                         <div class="text-xl text-gray-600">Hiển thị 1-6 trong số 24 sản phẩm</div>

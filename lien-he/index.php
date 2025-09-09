@@ -143,13 +143,13 @@
                     <div class="bg-white rounded-2xl shadow-lg p-8 md:p-6 sm:p-4">
                         <h2 class="text-2xl md:text-xl sm:text-lg font-bold text-gray-800 mb-6 md:mb-4">Gửi Tin Nhắn Cho
                             Chúng Tôi</h2>
-                        <form id="contact-form" class="space-y-6">
+                        <form action="../modules/save_contact.php" method="POST" id="contact-form" class="space-y-6">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-4">
                                 <div>
-                                    <label for="fullname"
+                                    <label for="name"
                                         class="block text-sm font-medium text-gray-700 mb-2 sm:mb-1.5">Họ và tên
                                         *</label>
-                                    <input type="text" id="fullname" name="fullname" required
+                                    <input type="text" id="name" name="name" required
                                         class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-sm">
                                 </div>
                                 <div>
@@ -169,13 +169,13 @@
                                 <div>
                                     <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Chủ
                                         đề</label>
-                                    <div class="relative">
+                                    <!-- <div class="relative">
                                         <button type="button" id="subject-dropdown"
                                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-sm text-left bg-white flex items-center justify-between">
                                             <span id="subject-text">Chọn chủ đề</span>
                                             <i class="ri-arrow-down-s-line"></i>
                                         </button>
-                                        <div id="subject-options"
+                                        <div id="subject-options" name="subject-options"
                                             class="hidden absolute top-full left-0 right-0 bg-white border border-gray-300 rounded-lg shadow-lg z-10 mt-1">
                                             <div class="subject-option px-4 py-3 hover:bg-gray-50 cursor-pointer text-sm"
                                                 data-value="product">Tư vấn sản phẩm</div>
@@ -188,6 +188,16 @@
                                             <div class="subject-option px-4 py-3 hover:bg-gray-50 cursor-pointer text-sm"
                                                 data-value="other">Khác</div>
                                         </div>
+                                    </div> -->
+                                    <div class="relative">
+                                        <select name="subject-options" id="subject-options" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-sm">
+                                            <option value="">Chọn chủ đề</option>
+                                            <option value="product">Tư vấn sản phẩm</option>
+                                            <option value="order">Đặt hàng</option>
+                                            <option value="partnership">Hợp tác kinh doanh</option>
+                                            <option value="complaint">Khiếu nại</option>
+                                            <option value="other">Khác</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -395,13 +405,7 @@
                     subjectOptions.classList.add('hidden');
                 }
             });
-            const contactForm = document.getElementById('contact-form');
-            contactForm.addEventListener('submit', function (e) {
-                e.preventDefault();
-                alert('Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi trong thời gian sớm nhất.');
-                contactForm.reset();
-                subjectText.textContent = 'Chọn chủ đề';
-            });
+            
         });
     </script>
     <script id="faq-script">
