@@ -2,7 +2,7 @@
 <?php
 include './config/db_connection.php';
 
-$img_path = './assets/img/' . $_SESSION['username'] . '/';
+$img_path = './admin/assets/img/' . $_SESSION['username'] . '/';
 $success_message = "";
 $errors = [];
 

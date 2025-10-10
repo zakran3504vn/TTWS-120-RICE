@@ -1,6 +1,6 @@
 <?php
 include '../config/db_connection.php';
-$sql= "SELECT `news_id`,`news_name`,`new_summary`,`news_img`,`news_author`,`create_time` FROM `news`";
+$sql = "SELECT `news_id`,`news_name`,`new_summary`,`news_img`,`news_author`,`create_time` FROM `news`";
 $result = $conn->query($sql);
 ?>
 <!DOCTYPE html>
@@ -73,8 +73,8 @@ $result = $conn->query($sql);
 
 <body class="bg-white">
     <?php
-     $current_page = 'news';
-     include ("../includes/header_child.php");
+    $current_page = 'news';
+    include("../includes/header_child.php");
     ?>
     <main class="pt-24">
         <section class="py-16 bg-gradient-to-br from-green-50 to-white">
@@ -102,30 +102,30 @@ $result = $conn->query($sql);
                     <?php
                     while ($row = $result->fetch_assoc()):
                     ?>
-                    <article
-                        class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                        <img src="<?php echo "..". $row['news_img']; ?>" class="w-full h-48 object-cover object-top">
-                        <div class="p-6">
-                            <div class="flex items-center gap-2 mb-3">
-                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Admin</span>
-                                <span class="text-gray-500 text-sm"><?php echo date("d M, Y", strtotime($row['create_time'])); ?></span>
+                        <article
+                            class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                            <img src="<?php echo $row['news_img']; ?>" class="w-full h-48 object-cover object-top">
+                            <div class="p-6">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Admin</span>
+                                    <span class="text-gray-500 text-sm"><?php echo date("d M, Y", strtotime($row['create_time'])); ?></span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-800 mb-3 line-clamp-2"><?php echo $row['news_name']; ?></h3>
+                                <p class="text-gray-600 mb-4 line-clamp-3"><?php echo $row['new_summary']; ?></p>
+                                <a href="./detail_new.php?id=<?php echo $row['news_id']; ?>"
+                                    data-readdy="true" class="inline-block">
+                                    <button
+                                        class="!rounded-button bg-primary text-white px-6 py-2 hover:bg-primary/90 transition-colors whitespace-nowrap">
+                                        Đọc thêm
+                                    </button>
+                                </a>
                             </div>
-                            <h3 class="text-xl font-bold text-gray-800 mb-3 line-clamp-2"><?php echo $row['news_name'];?></h3>
-                            <p class="text-gray-600 mb-4 line-clamp-3"><?php echo $row['new_summary'];?></p>
-                            <a href="./detail_new.php?id=<?php echo $row['news_id']; ?>"
-                                data-readdy="true" class="inline-block">
-                                <button
-                                    class="!rounded-button bg-primary text-white px-6 py-2 hover:bg-primary/90 transition-colors whitespace-nowrap">
-                                    Đọc thêm
-                                </button>
-                            </a>
-                        </div>
-                    </article>
+                        </article>
                     <?php
                     endwhile;
                     ?>
 
-                    
+
                 </div>
                 <div class="flex justify-center mt-12">
                     <div class="flex items-center gap-2">
@@ -152,14 +152,14 @@ $result = $conn->query($sql);
         </section>
     </main>
     <?php
-    include ('../includes/footer_child.php');
-    include ('../includes/cta_child.php');
+    include('../includes/footer_child.php');
+    include('../includes/cta_child.php');
     ?>
     <script id="search-functionality">
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const searchInput = document.getElementById('news-search');
             const articles = document.querySelectorAll('article');
-            searchInput.addEventListener('input', function () {
+            searchInput.addEventListener('input', function() {
                 const searchTerm = this.value.toLowerCase();
                 articles.forEach(article => {
                     const title = article.querySelector('h3').textContent.toLowerCase();

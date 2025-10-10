@@ -1,10 +1,10 @@
 <?php
 include '../config/db_connection.php';
-$sql= "SELECT `product_id`,`product_name`,`product_description`,`product_img`,`create_at`,`product_price`,`brandID`, `CategoryID` FROM `products`";
+$sql = "SELECT `product_id`,`product_name`,`product_description`,`product_img`,`create_at`,`product_price`,`brandID`, `CategoryID` FROM `products`";
 $result = $conn->query($sql);
 
 
-$sql2= "SELECT `brandID`, `brandName`,`brandDescription`,`brandImg`,`createdAt` FROM `brands`";
+$sql2 = "SELECT `brandID`, `brandName`,`brandDescription`,`brandImg`,`createdAt` FROM `brands`";
 $brands = $conn->query($sql2);
 
 if (!$brands) {
@@ -12,7 +12,7 @@ if (!$brands) {
 }
 
 
-$sql1= "SELECT `CategoryID`, `CategoryName`,`isTop`,`CreatedAt` FROM `category`";
+$sql1 = "SELECT `CategoryID`, `CategoryName`,`isTop`,`CreatedAt` FROM `category`";
 $categories = $conn->query($sql1);
 ?>
 <!DOCTYPE html>
@@ -103,8 +103,8 @@ $categories = $conn->query($sql1);
 
 <body class="bg-white">
     <?php
-     $current_page = 'products';
-     include ("../includes/header_child.php");
+    $current_page = 'products';
+    include("../includes/header_child.php");
     ?>
     <main class="pt-32 pb-16 min-h-screen">
         <div class="relative bg-[#F8F9FA] mb-12">
@@ -129,18 +129,18 @@ $categories = $conn->query($sql1);
                     <div class="mb-8">
                         <h3 class="font-semibold mb-4">Loại gạo</h3>
                         <div class="space-y-3">
-                        
-                         <?php 
-                        foreach ($categories as $category) {
-                            ?>
-                            <label class="flex items-center gap-3 cursor-pointer">
-                                <input type="checkbox" class="accent-primary" data-filter="type" value="<?php echo $category['CategoryID']; ?>">
-                                <span class="text-gray-700"><?php echo $category['CategoryName']; ?></span>
-                               
-                            </label>
+
                             <?php
-                        }
-                        ?>
+                            foreach ($categories as $category) {
+                            ?>
+                                <label class="flex items-center gap-3 cursor-pointer">
+                                    <input type="checkbox" class="accent-primary" data-filter="type" value="<?php echo $category['CategoryID']; ?>">
+                                    <span class="text-gray-700"><?php echo $category['CategoryName']; ?></span>
+
+                                </label>
+                            <?php
+                            }
+                            ?>
 
                         </div>
                     </div>
@@ -148,16 +148,16 @@ $categories = $conn->query($sql1);
                         <h3 class="font-semibold mb-4">Xuất xứ</h3>
                         <div class="space-y-3">
 
-                         <?php
-                         foreach ($brands as $brand) {
+                            <?php
+                            foreach ($brands as $brand) {
                             ?>
-                            <label class="flex items-center gap-3 cursor-pointer">
-                                <input type="checkbox" class="accent-primary" data-filter="origin" value="<?php echo $brand['brandID']; ?>">
-                                <span class="text-gray-700"><?php echo $brand['brandName']; ?></span>
-                            </label>
-                                  <?php
-                        }
-                        ?>
+                                <label class="flex items-center gap-3 cursor-pointer">
+                                    <input type="checkbox" class="accent-primary" data-filter="origin" value="<?php echo $brand['brandID']; ?>">
+                                    <span class="text-gray-700"><?php echo $brand['brandName']; ?></span>
+                                </label>
+                            <?php
+                            }
+                            ?>
                         </div>
                     </div>
                     <a href="#" id="reset-filters"
@@ -197,32 +197,32 @@ $categories = $conn->query($sql1);
                             </button>
                         </div>
                     </div>
-                    
+
                     <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <?php
-                    foreach ($result as $product) {
+                        <?php
+                        foreach ($result as $product) {
                         ?>
-                        <div class="bg-white rounded-lg shadow-lg overflow-hidden group product-item"
-                            data-type="<?= $product['CategoryID']; ?>" data-origin="<?= $product['brandID']; ?>" data-popularity="100" data-date="<?= date('Y-m-d', strtotime($product['create_at'])); ?>">
-                            <div class="relative">
-                                <img src="../admin/assets/img/<?php echo $product['product_img']; ?>"
-                                    alt="Gạo ST25" class="w-full h-48 object-cover">
-                            </div>
-                            <div class="p-6">
-                                <h3 class="text-xl font-semibold mb-2"><?php echo $product['product_name']; ?></h3>
-                                <p class="text-gray-600 mb-4"><?php echo $product['product_description']; ?></p>
-                                <div class="flex items-center justify-between mb-4">
-                                    <div class="text-primary font-bold text-xl"><?php echo number_format($product['product_price'], 0, ',', '.') . ' ₫'; ?></div>
+                            <div class="bg-white rounded-lg shadow-lg overflow-hidden group product-item"
+                                data-type="<?= $product['CategoryID']; ?>" data-origin="<?= $product['brandID']; ?>" data-popularity="100" data-date="<?= date('Y-m-d', strtotime($product['create_at'])); ?>">
+                                <div class="relative">
+                                    <img src="<?php echo $product['product_img']; ?>"
+                                        alt="Gạo ST25" class="w-full h-48 object-cover">
                                 </div>
-                             <a href="./detail_product.php?id=<?= $product['product_id']; ?>" data-readdy="true" class="block">
-                                <button class="!rounded-button bg-primary text-white px-6 py-2 w-full hover:bg-primary/90">
-                                    Xem chi tiết
-                                </button>
-                            </a>
+                                <div class="p-6">
+                                    <h3 class="text-xl font-semibold mb-2"><?php echo $product['product_name']; ?></h3>
+                                    <p class="text-gray-600 mb-4"><?php echo $product['product_description']; ?></p>
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div class="text-primary font-bold text-xl"><?php echo number_format($product['product_price'], 0, ',', '.') . ' ₫'; ?></div>
+                                    </div>
+                                    <a href="./detail_product.php?id=<?= $product['product_id']; ?>" data-readdy="true" class="block">
+                                        <button class="!rounded-button bg-primary text-white px-6 py-2 w-full hover:bg-primary/90">
+                                            Xem chi tiết
+                                        </button>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                        <!-- Thêm nhiều sản phẩm khác để demo, với data-type, data-origin, data-popularity (số cao hơn = phổ biến hơn), data-date (YYYY-MM-DD) -->
-                      <?php
+                            <!-- Thêm nhiều sản phẩm khác để demo, với data-type, data-origin, data-popularity (số cao hơn = phổ biến hơn), data-date (YYYY-MM-DD) -->
+                        <?php
                         }
                         ?>
                     </div>
@@ -285,11 +285,11 @@ $categories = $conn->query($sql1);
         </div>
     </div>
     <?php
-    include ('../includes/footer_child.php');
-    include ('../includes/cta_child.php');
+    include('../includes/footer_child.php');
+    include('../includes/cta_child.php');
     ?>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const compareButtons = document.querySelectorAll('.ri-scales-3-line');
             const compareBar = document.getElementById('compare-bar');
             const filterToggle = document.getElementById('filter-toggle');
@@ -304,25 +304,25 @@ $categories = $conn->query($sql1);
 
             // Toggle compare bar
             compareButtons.forEach(button => {
-                button.parentElement.addEventListener('click', function () {
+                button.parentElement.addEventListener('click', function() {
                     button.parentElement.classList.toggle('text-primary');
                     compareBar.classList.toggle('translate-y-full');
                 });
             });
 
             // Toggle filter sidebar on mobile/iPad
-            filterToggle.addEventListener('click', function () {
+            filterToggle.addEventListener('click', function() {
                 filterSidebar.classList.toggle('hidden');
             });
 
             // Sort dropdown toggle
-            sortButton.addEventListener('click', function () {
+            sortButton.addEventListener('click', function() {
                 sortDropdown.classList.toggle('hidden');
             });
 
             // Sort selection
             sortDropdown.querySelectorAll('button').forEach(btn => {
-                btn.addEventListener('click', function () {
+                btn.addEventListener('click', function() {
                     currentSort = this.dataset.sort;
                     sortLabel.textContent = this.textContent;
                     sortDropdown.classList.add('hidden');
@@ -337,7 +337,7 @@ $categories = $conn->query($sql1);
             });
 
             // Reset filters
-            resetFilters.addEventListener('click', function (e) {
+            resetFilters.addEventListener('click', function(e) {
                 e.preventDefault();
                 checkboxes.forEach(checkbox => {
                     checkbox.checked = false;

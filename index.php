@@ -1,6 +1,6 @@
 <?php
 include('./config/db_connection.php');
-$sql1= "SELECT `CategoryID`, `CategoryName`,`isTop`,`CreatedAt`, `description`,`CategoryImg` FROM `category`";
+$sql1 = "SELECT `CategoryID`, `CategoryName`,`isTop`,`CreatedAt`, `description`,`CategoryImg` FROM `category`";
 $categories = $conn->query($sql1);
 $category_id = isset($_GET['category_id']) ? intval($_GET['category_id']) : 0;
 ?>
@@ -168,10 +168,11 @@ $category_id = isset($_GET['category_id']) ? intval($_GET['category_id']) : 0;
             </div>
         </section>
         <script id="hero-slider-script">
-            document.addEventListener('DOMContentLoaded', function () {
+            document.addEventListener('DOMContentLoaded', function() {
                 const slider = document.querySelector('#hero-slider .flex');
                 const dots = document.querySelectorAll('.slider-dot');
                 let currentIndex = 0;
+
                 function updateSlider(index) {
                     slider.style.transform = `translateX(-${index * 100}%)`;
                     dots.forEach((dot, i) => {
@@ -184,6 +185,7 @@ $category_id = isset($_GET['category_id']) ? intval($_GET['category_id']) : 0;
                         updateSlider(currentIndex);
                     });
                 });
+
                 function autoSlide() {
                     currentIndex = (currentIndex + 1) % 3;
                     updateSlider(currentIndex);
@@ -193,25 +195,25 @@ $category_id = isset($_GET['category_id']) ? intval($_GET['category_id']) : 0;
             });
         </script>
         <section class="py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center mb-12 text-primary">Danh Mục Sản Phẩm</h2>
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center mb-12 text-primary">Danh Mục Sản Phẩm</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
 
-            <?php foreach ($categories as $category): ?>
-                <a href="san-pham/detail_product.php?category_id=<?php echo $category['CategoryID']; ?>" class="text-center">
-                    <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-white shadow-lg p-4 flex items-center justify-center">
-                        <img src="./admin/assets/img/<?php echo $category['CategoryImg']; ?>" 
-                             alt="<?php echo $category['CategoryName']; ?>" 
-                             class="w-full h-full object-cover rounded-full">
-                    </div>
-                    <h3 class="font-semibold mb-2 text-2xl"><?php echo $category['CategoryName']; ?></h3>
-                    <p class="text-xl text-gray-600"><?php echo $category['description']; ?></p>
-                </a>
-            <?php endforeach; ?>
+                    <?php foreach ($categories as $category): ?>
+                        <a href="san-pham/detail_product.php?category_id=<?php echo $category['CategoryID']; ?>" class="text-center">
+                            <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-white shadow-lg p-4 flex items-center justify-center">
+                                <img src="./admin/assets/img/<?php echo $category['CategoryImg']; ?>"
+                                    alt="<?php echo $category['CategoryName']; ?>"
+                                    class="w-full h-full object-cover rounded-full">
+                            </div>
+                            <h3 class="font-semibold mb-2 text-2xl"><?php echo $category['CategoryName']; ?></h3>
+                            <p class="text-xl text-gray-600"><?php echo $category['description']; ?></p>
+                        </a>
+                    <?php endforeach; ?>
 
-        </div>
-    </div>
-</section>
+                </div>
+            </div>
+        </section>
 
 
 
@@ -220,7 +222,7 @@ $category_id = isset($_GET['category_id']) ? intval($_GET['category_id']) : 0;
                 <h2 class="text-4xl text-primary font-bold text-center mb-12">Sản Phẩm Nổi Bật</h2>
                 <?php
                 // Truy vấn sản phẩm nổi bật cho phần đầu tiên
-                $resultproducts = $conn->query("SELECT product_id, product_img AS image, product_name AS name, product_description AS description, product_price AS price FROM products WHERE product_features = 1");
+                $resultproducts = $conn->query("SELECT product_id, product_img AS image, product_name AS name, product_description AS description, product_price AS price FROM products WHERE outstanding_products = 'true'");
                 if ($resultproducts === false) {
                     echo "<p class='text-red-500 text-center'>Lỗi truy vấn: " . htmlspecialchars($conn->error) . "</p>";
                 } else if ($resultproducts->num_rows === 0) {
@@ -230,9 +232,9 @@ $category_id = isset($_GET['category_id']) ? intval($_GET['category_id']) : 0;
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <?php while ($row = $resultproducts->fetch_assoc()): ?>
                             <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                                <img src="./admin/assets/img/<?= $row['image']; ?>"
-                                     alt="<?php echo htmlspecialchars($row['name']); ?>"
-                                     class="w-full h-auto object-cover">
+                                <img src="<?= $row['image']; ?>"
+                                    alt="<?php echo htmlspecialchars($row['name']); ?>"
+                                    class="w-full h-auto object-cover">
                                 <div class="p-6">
                                     <h3 class="text-2xl font-semibold mb-2"><?php echo htmlspecialchars($row['name']); ?></h3>
                                     <p class="text-gray-600 mb-4 text-xl">
@@ -245,7 +247,7 @@ $category_id = isset($_GET['category_id']) ? intval($_GET['category_id']) : 0;
                                             </span>
                                         </div>
                                         <a href="./san-pham/detail_product.php?id=<?php echo $row['product_id']; ?>"
-                                           class="!rounded-button bg-primary text-white px-6 py-2 hover:bg-primary/90 text-2xl">
+                                            class="!rounded-button bg-primary text-white px-6 py-2 hover:bg-primary/90 text-2xl">
                                             Xem chi tiết
                                         </a>
                                     </div>
@@ -407,8 +409,8 @@ $category_id = isset($_GET['category_id']) ? intval($_GET['category_id']) : 0;
         </section>
     </main>
     <?php
-    include ('./includes/footer.php');
-    include ('./includes/cta.php');
+    include('./includes/footer.php');
+    include('./includes/cta.php');
     ?>
 </body>
 

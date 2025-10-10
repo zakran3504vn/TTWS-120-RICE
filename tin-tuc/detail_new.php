@@ -106,7 +106,7 @@ if ($result->num_rows > 0) {
                 </div>
             </header>
             <div class="mb-12">
-                <img src="..<?php echo $news['news_img']; ?>"
+                <img src="<?php echo $news['news_img']; ?>"
                     alt="Hinh ảnh bài viết"
                     class="w-full h-96 object-cover object-top rounded-xl shadow-lg">
             </div>
@@ -138,7 +138,7 @@ if ($result->num_rows > 0) {
     ?>
             <article
                 class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
-                <img src="..<?php echo htmlspecialchars($news_item['news_img']); ?>"
+                <img src="<?php echo htmlspecialchars($news_item['news_img']); ?>"
                     alt="Hình ảnh bài viết" class="w-full h-48 object-cover object-top">
                 <div class="p-6 flex-1">
                     <div class="flex items-center gap-2 mb-3">

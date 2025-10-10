@@ -48,6 +48,7 @@ if ($category_id) {
 
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -85,6 +86,7 @@ if ($category_id) {
         :where([class^="ri-"])::before {
             content: "\f3c2";
         }
+
         input[type="radio"] {
             appearance: none;
             width: 20px;
@@ -94,9 +96,11 @@ if ($category_id) {
             cursor: pointer;
             position: relative;
         }
+
         input[type="radio"]:checked {
             border-color: #4CAF50;
         }
+
         input[type="radio"]:checked::after {
             content: "";
             position: absolute;
@@ -110,10 +114,11 @@ if ($category_id) {
         }
     </style>
 </head>
+
 <body class="bg-white">
-     <?php
-     $current_page = 'products';
-     include ("../includes/header_child.php");
+    <?php
+    $current_page = 'products';
+    include("../includes/header_child.php");
     ?>
     <main class="pt-32 pb-16 min-h-screen">
         <div class="container mx-auto px-4">
@@ -131,7 +136,7 @@ if ($category_id) {
                 <div class="space-y-4">
                     <div class="relative">
                         <img id="main-image"
-                            src="../admin/assets/img/<?php echo $product['product_img']; ?>"
+                            src="<?php echo $product['product_img']; ?>"
                             alt="Gạo ST25 Đặc Sản" class="w-full h-auto object-cover rounded-lg cursor-zoom-in">
                         <button id="zoom-btn"
                             class="absolute top-4 right-4 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center text-gray-600 hover:text-primary">
@@ -146,18 +151,18 @@ if ($category_id) {
                         </button>
                         <div class="flex gap-2 overflow-x-auto flex-1">
                             <?php
-                                $images = explode(",", $product['product_album']); 
-                                array_unshift($images, $product['product_img']);
-                                foreach ($images as $index => $img) {
-                                    $img = trim($img); 
-                                    ?>
-                                    <img src="../admin/assets/img/<?= $img ?>"
-                                        data-large-src="../admin/assets/img/<?= $img ?>"
-                                        alt="Thumbnail <?= $index + 1 ?>"
-                                        class="w-16 h-16 object-cover rounded-lg cursor-pointer border-2 border-primary thumbnail <?= $index === 0 ? 'active' : '' ?>">
-                                    <?php
-                                }
-                                ?>
+                            $images = explode(",", $product['product_album']);
+                            array_unshift($images, $product['product_img']);
+                            foreach ($images as $index => $img) {
+                                $img = trim($img);
+                            ?>
+                                <img src="<?= $img ?>"
+                                    data-large-src="<?= $img ?>"
+                                    alt="Thumbnail <?= $index + 1 ?>"
+                                    class="w-16 h-16 object-cover rounded-lg cursor-pointer border-2 border-primary thumbnail <?= $index === 0 ? 'active' : '' ?>">
+                            <?php
+                            }
+                            ?>
                         </div>
                         <button
                             class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center text-gray-600 hover:text-primary"
@@ -192,7 +197,7 @@ if ($category_id) {
 
                     </div>
                 </div>
-               
+
             </div>
             <div class="mb-16">
                 <div class="flex items-center justify-between mb-8">
@@ -210,26 +215,26 @@ if ($category_id) {
                         </button>
                     </div>
                 </div>
-                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="related-products">
-    <?php foreach ($same_products as $product) { ?>
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <img src="../admin/assets/img/<?= $product['product_img']; ?>" alt="<?= $product['product_name']; ?>" class="w-full h-auto object-cover">
-            <div class="p-4">
-                <h3 class="font-semibold mb-2"><?= $product['product_name']; ?></h3>
-                <p class="text-gray-600 mb-4 text-sm"><?= $product['product_description']; ?></p>
-                <div class="flex items-center justify-between">
-                    <div class="text-primary font-bold text-lg">
-                        <?= number_format($product['product_price'], 0, ',', '.') . ' ₫'; ?>
-                    </div>
-                    <button onclick="window.location.href='./detail_product.php?id=<?= $product['product_id']; ?>'"
-                            class="!rounded-button bg-primary text-white px-4 py-2 text-sm hover:bg-primary/90">
-                        Xem chi tiết
-                    </button>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="related-products">
+                    <?php foreach ($same_products as $product) { ?>
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                            <img src="<?= $product['product_img']; ?>" alt="<?= $product['product_name']; ?>" class="w-full h-auto object-cover">
+                            <div class="p-4">
+                                <h3 class="font-semibold mb-2"><?= $product['product_name']; ?></h3>
+                                <p class="text-gray-600 mb-4 text-sm"><?= $product['product_description']; ?></p>
+                                <div class="flex items-center justify-between">
+                                    <div class="text-primary font-bold text-lg">
+                                        <?= number_format($product['product_price'], 0, ',', '.') . ' ₫'; ?>
+                                    </div>
+                                    <button onclick="window.location.href='./detail_product.php?id=<?= $product['product_id']; ?>'"
+                                        class="!rounded-button bg-primary text-white px-4 py-2 text-sm hover:bg-primary/90">
+                                        Xem chi tiết
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
                 </div>
-            </div>
-        </div>
-    <?php } ?>
-</div>
 
             </div>
         </div>
@@ -238,13 +243,13 @@ if ($category_id) {
     <div id="contact-modal" class="fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center">
         <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4">
             <div class="flex items-center justify-between mb-6">
-                <h2 class="text-2xl text-primary font-bold">Đặt hàng  <?php echo $product['product_name']; ?></h2>
+                <h2 class="text-2xl text-primary font-bold">Đặt hàng <?php echo $product['product_name']; ?></h2>
                 <button id="close-modal"
                     class="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-gray-600">
                     <i class="ri-close-line text-xl"></i>
                 </button>
             </div>
-            <form  action="../modules/save_orders.php" method="POST" id="contact-form" class="space-y-4">
+            <form action="../modules/save_orders.php" method="POST" id="contact-form" class="space-y-4">
                 <div>
                     <label class="block text-sm font-medium mb-2">Họ và tên <span class="text-red-500">*</span></label>
                     <input type="text" name="fullname" id="fullname" required
@@ -258,7 +263,7 @@ if ($category_id) {
                 </div>
                 <div>
                     <label class="block text-sm font-medium mb-2">Email</label>
-                    <input type="email" name="email" id="email" required
+                    <input type="email" name="email" id="email"
                         class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
                 </div>
                 <div>
@@ -282,7 +287,7 @@ if ($category_id) {
         </div>
     </div>
 
-    
+
     <div id="image-modal" class="fixed inset-0 bg-black/80 z-50 hidden flex items-center justify-center">
         <div class="relative max-w-4xl max-h-[90vh] w-full h-full flex items-center justify-center">
             <img id="zoomed-image" src="" alt="" class="max-w-full max-h-full object-contain" style="transform: scale(1);">
@@ -294,15 +299,15 @@ if ($category_id) {
         </div>
     </div>
     <?php
-    include ('../includes/footer_child.php');
-    include ('../includes/cta_child.php');
+    include('../includes/footer_child.php');
+    include('../includes/cta_child.php');
     ?>
     <script id="main-script">
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             // Mobile menu toggle
             const menuToggle = document.getElementById('menu-toggle');
             const mobileMenu = document.getElementById('mobile-menu');
-            menuToggle.addEventListener('click', function () {
+            menuToggle.addEventListener('click', function() {
                 mobileMenu.classList.toggle('hidden');
             });
 
@@ -312,6 +317,7 @@ if ($category_id) {
             const prevBtn = document.getElementById('prev-btn');
             const nextBtn = document.getElementById('next-btn');
             let currentIndex = 0;
+
             function updateMainImage(index) {
                 mainImage.src = thumbnails[index].dataset.largeSrc;
                 thumbnails.forEach((thumb, i) => {
@@ -347,11 +353,13 @@ if ($category_id) {
             const zoomStep = 0.5;
             const maxZoom = 3;
             const minZoom = 1;
+
             function openImageModal() {
                 zoomedImage.src = mainImage.src;
                 zoomedImage.style.transform = `scale(${zoomLevel})`;
                 imageModal.classList.remove('hidden');
             }
+
             function closeImageModalFunc() {
                 imageModal.classList.add('hidden');
                 zoomLevel = 1;
@@ -382,7 +390,7 @@ if ($category_id) {
             const tabButtons = document.querySelectorAll('.tab-btn');
             const tabContents = document.querySelectorAll('.tab-content');
             tabButtons.forEach(button => {
-                button.addEventListener('click', function () {
+                button.addEventListener('click', function() {
                     const targetTab = this.getAttribute('data-tab');
                     tabButtons.forEach(btn => {
                         btn.classList.remove('border-primary', 'text-primary');
@@ -406,20 +414,20 @@ if ($category_id) {
             const noteLengthDisplay = document.getElementById('note-length');
             const productName = document.querySelector('h1.text-3xl.font-bold').textContent;
             const sizeInputs = contactForm.querySelectorAll('input[name="size"]');
-            contactBtn.addEventListener('click', function () {
+            contactBtn.addEventListener('click', function() {
                 modal.classList.remove('hidden');
             });
-            closeBtn.addEventListener('click', function () {
+            closeBtn.addEventListener('click', function() {
                 modal.classList.add('hidden');
                 contactForm.reset();
             });
-            modal.addEventListener('click', function (e) {
+            modal.addEventListener('click', function(e) {
                 if (e.target === modal) {
                     modal.classList.add('hidden');
                     contactForm.reset();
                 }
             });
-            noteTextarea.addEventListener('input', function () {
+            noteTextarea.addEventListener('input', function() {
                 const length = this.value.length;
                 noteLengthDisplay.textContent = length;
                 if (length > 500) {
@@ -446,4 +454,5 @@ if ($category_id) {
         });
     </script>
 </body>
+
 </html>
